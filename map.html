@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            let ids = $('input[type="checkbox"]').map((a, b) => {
+                console.log(a, b); //a : 인덱스값 b:element 요소
+                return b.id;
+            }).get().join('='); //join없이get(해당되는 요소를 하나씩 가져옴)만하면 배열형태로 출력됨
+            //join : ()안의 조인할 값들로 연결해서 String 타입으로 바꿔줌 
+            console.clear();
+            console.log(ids);
+
+            // $.map($('input[type="checkbox"]'),(a,b) => {
+
+            // }); -> 위랑 동일한 방식
+
+            let chkboexs = $.grep(('input:checkbox'), (a, b) => { //a:object, b:index
+                console.log(a, b);
+                return (b > 0 ? a : null);
+            });
+            console.clear();
+            console.log(chkboexs);
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <label for="one">One</label>
+        <input type="checkbox" id="one">
+    </div>
+
+    <div>
+        <label for="tow">Two</label>
+        <input type="checkbox" id="two">
+    </div>
+
+    <div>
+        <label for="three">Three</label>
+        <input type="checkbox" id="three">
+    </div>
+</body>
+
+</html>
